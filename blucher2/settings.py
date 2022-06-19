@@ -49,7 +49,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['happyblucher.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['happyblucher.com', '127.0.0.1']
 
 
 #DEBUG = False
