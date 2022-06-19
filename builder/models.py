@@ -3,13 +3,15 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
+    id = models.BigAutoField(primary_key=True)
+
     def _str__(self):
         # return self.username???
         return f"{self.username}"
 
 
 class Armylist(models.Model):
-
+    id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(
         "CustomUser", on_delete=models.CASCADE, related_name="userlists")
     description = models.CharField(max_length=255)
