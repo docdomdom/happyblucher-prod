@@ -15,14 +15,14 @@ import os
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# in diesem Fall: base_dir ist /Users/dominiklopatic/coding/blucher2_prod
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'DswnfaLIvt9XDLXvtQkSkM5PBB3oO9Vdkm2phyIZAp0B5v5z25o'
+#SECRET_KEY = 'DswnfaLIvt9XDLXvtQkSkM5PBB3oO9Vdkm2phyIZAp0B5v5z25o'
 
 
 env = environ.Env()
@@ -54,7 +54,7 @@ ALLOWED_HOSTS = ['happyblucher.com', '127.0.0.1']
 
 #DEBUG = False
 
-#ALLOWED_HOSTS = ['happyblucher.com']
+#ALLOWED_HOSTS = []
 
 #SECURE_SSL_REDIRECT = True
 #SECURE_HSTS_SECONDS = 2592000
@@ -74,12 +74,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -157,9 +159,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, ""), )
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, "builder/static/"), )
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "builder/static/"), os.path.join(BASE_DIR, "builder/static/builder"),
+                    os.path.join(BASE_DIR, "builder/static/builder/images"), os.path.join(BASE_DIR, "builder/static/builder/bundled"), ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/builder/images/'
 
 #LOGIN_REDIRECT_URL = '/'
