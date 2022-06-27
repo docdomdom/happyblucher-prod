@@ -48,7 +48,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['happyblucher.com', 'www.happyblucher.com', '192.168.1.201',]
+ALLOWED_HOSTS = ['www.happyblucher.com', '192.168.1.201',]
 
 
 #ALLOWED_HOSTS = []
@@ -159,7 +159,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "builder/static/"), os.path.join(BASE_DIR, "builder/static/builder"),
                     os.path.join(BASE_DIR, "builder/static/builder/images"), os.path.join(BASE_DIR, "builder/static/builder/bundled"), ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 MEDIA_URL = '/builder/images/'
 
 #LOGIN_REDIRECT_URL = '/'
