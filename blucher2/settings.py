@@ -22,8 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'DswnfaLIvt9XDLXvtQkSkM5PBB3oO9Vdkm2phyIZAp0B5v5z25o'
-
+#SECRET_KEY = ''
 
 env = environ.Env()
 # reading .env file
@@ -49,10 +48,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['happyblucher.com', '127.0.0.1']
+ALLOWED_HOSTS = ['happyblucher.com', 'www.happyblucher.com', '192.168.1.201',]
 
-
-#DEBUG = False
 
 #ALLOWED_HOSTS = []
 
@@ -74,14 +71,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -158,13 +153,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, "builder/static/"), )
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, "builder/static/")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "builder/static/"), os.path.join(BASE_DIR, "builder/static/builder"),
                     os.path.join(BASE_DIR, "builder/static/builder/images"), os.path.join(BASE_DIR, "builder/static/builder/bundled"), ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/builder/images/'
 
 #LOGIN_REDIRECT_URL = '/'
