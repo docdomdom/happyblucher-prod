@@ -22,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = ''
+#SECRET_KEY = 'DswnfaLIvt9XDLXvtQkSkM5PBB3oO9Vdkm2phyIZAp0B5v5z25o'
+
 
 env = environ.Env()
 # reading .env file
@@ -48,18 +49,15 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['happyblucher.com', 'www.happyblucher.com', '192.168.1.201',]
+ALLOWED_HOSTS = ['www.happyblucher.com', 'happyblucher.com', '192.168.1.201']
 
-
-#ALLOWED_HOSTS = []
-
-#SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 #SECURE_HSTS_SECONDS = 2592000
 #SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 #SECURE_HSTS_PRELOAD = True
 
-#SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -103,7 +101,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blucher2.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -153,13 +150,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, "builder/static/")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "builder/static/"), os.path.join(BASE_DIR, "builder/static/builder"),
-                    os.path.join(BASE_DIR, "builder/static/builder/images"), os.path.join(BASE_DIR, "builder/static/builder/bundled"), ]
+STATICFILES_DIRS = os.path.join(BASE_DIR, "builder/static/")
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 MEDIA_URL = '/builder/images/'
 
 #LOGIN_REDIRECT_URL = '/'
