@@ -20,6 +20,6 @@
 
 @media screen and (max-width: 424px) {
     .fixed-top{
-        position: static;
+        position: absolute;
     }
 }
