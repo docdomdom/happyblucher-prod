@@ -108,10 +108,8 @@ function Header({setDisplayState}) {
                         height="40"
                         className="d-inline-block brand-logo" //align-top
                         />
-                    {!loggedIn ? <span className="navbar-text brand-text">Happy Blucher</span>
-                    : <span className="small-font navbar-text brand-text">Welcome {username}!</span>}
+                    <span className="navbar-text brand-text">Happy Blucher</span>
                 </Navbar.Brand>
-{/*}
                 {loggedIn && <Nav>
                     <Nav.Item>
                         <Nav.Link>
@@ -119,10 +117,8 @@ function Header({setDisplayState}) {
                         </Nav.Link>
                     </Nav.Item>
                 </Nav>}
-*/}
-
                 <Navbar.Toggle />
-                <Navbar.Collapse id="right-navbar">
+                <Navbar.Collapse>
                     <Nav
                         className="me-auto nav-links justify-content-end"
                         style={{ width: "100%" }}>
@@ -612,10 +608,10 @@ function BuilderNavBar() {
 
     return (
         <nav id="builder-navbar" className="navbar">
-            <div id="builder-navbar-container" className= "navbar-container container">
-              {/*}  <div id="description-bar">
+            <div className= "navbar-container container">
+                <div id="description-bar">
                     <Description />
-    </div>*/}
+                </div>
                 <div id="left-builder-control">
                 {/*<form className=" container-fluid justify-content-start">*/}
                     {/* check if category is available in this countries army list and render button, otherwise render disabled button  */}
@@ -629,7 +625,6 @@ function BuilderNavBar() {
                     )}
                 </div>
                 <div id="right-builder-control">
-                    <Description />
                     {loggedIn ?
                         <button onClick={() => saveList(myArmy, setMyArmy)} className="btn btn-sm btn-outline-secondary" type="button">Save</button>
                         :
@@ -732,7 +727,7 @@ function DisplayTable() {
                     return "exceedance"
                 }
                 else {
-                    return ""
+                    return;
                 }
             }
             if (unit.id == 198) {
@@ -740,23 +735,20 @@ function DisplayTable() {
                     return "exceedance"
                 }
                 else {
-                    return ""
+                    return;
                 }
             }
-
             if (unit.count > unit.max) {
                 return "exceedance"
             }
         }
-        return ""
     }
 
     return (
         <div id="builder-table">
             <table className="table table-striped table-hover">
                 <thead>
-{/*
-                <tr>
+                    <tr>
                         <th>#</th>
                         <th>{myArmy.name}</th>
                         <th>Min</th>
@@ -776,34 +768,6 @@ function DisplayTable() {
                                     <td onClick = {() => handleAddUnit(unit, index)} className={checkExceedance(unit)}>{unit.max ? unit.max : "-"}</td>
                                     <td onClick = {() => handleAddUnit(unit, index)}>{unit.points}</td>
                                     <td onClick = {() => handleAddUnit(unit, index)}>{unit.special}</td>
-                                </tr>
-
-
-
-
-                            */}
-
-
-                    <tr>
-                        <th className="text-centered">#</th>
-                        <th className="text-centered">{myArmy.name}</th>
-                        <th className="text-centered">Min</th>
-                        <th className="text-centered">Max</th>
-                        <th className="text-centered">Points</th>
-                        <th className="text-centered specials-column">Specials</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {myArmy.unitsAvailable.map(function(unit,index) {
-                        return (
-                            unit.type.includes(categories.selected.toLowerCase()) ? (
-                                <tr key={unit.id}>
-                                    <td onClick = {() => handleRemoveUnit(unit)} className={`text-centered ${checkExceedance(unit)}`}>{unit.count}</td>
-                                    <td onClick = {() => handleAddUnit(unit, index)} className="text-centered">{unit.name}</td>
-                                    <td onClick = {() => handleAddUnit(unit, index)} className={`text-centered ${checkExceedance(unit)}`}>{unit.min ? unit.min : "-"}</td>
-                                    <td onClick = {() => handleAddUnit(unit, index)} className={`text-centered ${checkExceedance(unit)}`}>{unit.max ? unit.max : "-"}</td>
-                                    <td onClick = {() => handleAddUnit(unit, index)} className="text-centered">{unit.points}</td>
-                                    <td onClick = {() => handleAddUnit(unit, index)} className="text-centered specials-column">{unit.special}</td>
                                 </tr>
                                 )
                             : null
@@ -1207,7 +1171,7 @@ function Momentum(props) {
 
     function CheckButton() {
         return (
-        <div className="text-centered">
+        <div id="check-button">
             <button className="btn btn-secondary btn-lg" onClick = {checkMomentum}>Check</button>
         </div>
         )}
