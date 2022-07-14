@@ -5,6 +5,10 @@ tr {
   cursor: pointer;
 }
 
+button {
+  margin: 0.5em;
+}
+
 .exceedance {
   color: red !important;
 }
@@ -56,36 +60,12 @@ html {
     height: 100%;
   }
 
-  button {
-    margin: 0.5rem;
-  }
-
-  @media screen and (max-width: 820px) {
-    button {
-      margin-left: .25rem;
-      margin-right: .25rem;
-    }
-  }
-
 @media screen and (max-width: 307px) {
   #body-div {
     padding-top: 122px;
   }
   .column-div {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 356px) {
-  #builder-navbar button {
-    font-size: .77rem;
-    padding: .25rem .2rem;
-  }
-}
-
-@media screen and (max-width: 660px) {
-  .specials-column {
-    display: none !important;
   }
 }
 
@@ -103,22 +83,10 @@ html {
   }
 }
 
-@media screen and (min-width: 768px) {
-  #right-navbar {
-    margin-right: 65px;
-  }
-}
-
-@media screen and (min-width: 988px) {
+@media screen and (min-width: 810px) {
   #column-display {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-  .container {
-    margin-left: 65px;
-  }
-  #right-builder-control {
-    margin-right: 65px;
   }
 }
 /*
@@ -169,16 +137,29 @@ html {
 
 #left-builder-control {
   display: flex;
-  flex-wrap:  nowrap;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
 #right-builder-control {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+
+  #left-builder-control {
+    order: 1;
+  }
+
+  #right-builder-control {
+    order: 3;
+  }
+
+  #description-bar {
+    order: 2;
+  }
+}
 /*
 .bg-transparent {
   height: 100%;
@@ -325,6 +306,10 @@ ul {
   text-align: center;
 }
 
+#check-button {
+  text-align: center;
+}
+
 #proceed-warning {
   height: 25%;
   color: green;
@@ -357,14 +342,6 @@ ul {
 
 @media print{
   @page {size: landscape}
-}
-
-.text-centered {
-  text-align: center;
-}
-
-.small-font {
-  font-size: 0.95;
 }
 
 /*
