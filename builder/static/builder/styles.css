@@ -43,6 +43,7 @@ html {
 
 .bg-full {
   position: fixed;
+  top: 10px;
   right: 0px;
   left: 0px;
   background-image: url("./images/austerlitzklein.jpg");
@@ -188,7 +189,7 @@ html {
 .bg-transparent::before {
   content: "";
   position: fixed;
-  top: 0px;
+  top: 10px;
   right: 0px;
   bottom: 0px;
   left: 0px;
@@ -365,6 +366,10 @@ ul {
 
 .small-font {
   font-size: 0.95;
+}
+
+#mylist-buttons {
+  text-align: center;
 }
 
 /*
