@@ -111,7 +111,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-pip
 AUTH_USER_MODEL = 'builder.CustomUser'
 
 # Password validation

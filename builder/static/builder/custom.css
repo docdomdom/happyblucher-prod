@@ -17,3 +17,9 @@
         padding: .25rem .25rem;
     }
 }
+
+@media screen and (max-width: 424px) {
+    .fixed-top{
+        position: static;
+    }
+}
