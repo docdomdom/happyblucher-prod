@@ -15,7 +15,7 @@ import os
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# in diesem Fall: base_dir ist /Users/dominiklopatic/coding/blucher2_prod
+# in diesem Fall: base_dir ist /Users/dminklatc/coding/blucher2_prod
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -111,7 +111,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-pip
+
 AUTH_USER_MODEL = 'builder.CustomUser'
 
 # Password validation
