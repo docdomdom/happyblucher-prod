@@ -49,7 +49,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.happyblucher.com', 'happyblucher.com', '192.168.1.201', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['www.happyblucher.com', 'happyblucher.com', '192.168.1.201', '127.0.0.1']
 
 SECURE_SSL_REDIRECT = True
 #SECURE_HSTS_SECONDS = 2592000
