@@ -17,9 +17,12 @@
         padding: .25rem .25rem;
     }
 }
-
 @media screen and (max-width: 424px) {
     .fixed-top{
         position: absolute;
+    }
+    .dice-img {
+        height: 55px;
+        margin: 0.5rem;
     }
 }
