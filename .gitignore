@@ -1,3 +1,5 @@
 myenv/
 staticfiles/
 blucher2/.env
+builder/static/builder/images
+builder/static/builder/*.png
